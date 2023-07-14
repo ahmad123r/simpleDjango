@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <style>body {
+      background: linear-gradient(to right, red, orange, yellow);
+          }
+          .header{
+            display: flex;
+      flex-direction: column;
+      align-items: center;   
+          }
+          .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-field {
+      margin-bottom: 10px;
+    }
+          </style>
+           <script>
+            function submitForm() {
+              // Get input values
+              var selectValue = document.getElementById("mySelect").value;
+              var input1Value = document.getElementById("input1").value;
+              var input2Value = document.getElementById("input2").value;
+        
+              // Perform any necessary operations or calculations with the input values
+              var outputValue = "Output: " + selectValue + " | " + input1Value + " | " + input2Value;
+        
+              // Display the output
+              document.getElementById("output").innerText = outputValue;
+            }
+          </script>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Gradustion Project</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+</head>
+<div class="header">
+ <h1>Gradtuion Project</h1>   
+</div>
+
+<body>
+    <div class="container">
+        <select id="mySelect">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+    
+        <div class="input-field">
+          <input type="text" id="input1" placeholder="Input 1">
+        </div>
+    
+        <div class="input-field">
+          <input type="text" id="input2" placeholder="Input 2">
+        </div>
+    
+        <button onclick="submitForm()">Submit</button>
+    
+        <div class="output" id="output"></div>
+      </div>
+    
+</body>
+
+</html>
