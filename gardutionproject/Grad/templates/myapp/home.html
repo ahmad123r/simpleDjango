@@ -1,70 +1,121 @@
 <!DOCTYPE html>
 <html>
-    <style>body {
-      background: linear-gradient(to right, red, orange, yellow);
-          }
-          .header{
-            display: flex;
-      flex-direction: column;
-      align-items: center;   
-          }
-          .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .input-field {
-      margin-bottom: 10px;
-    }
-          </style>
-           <script>
-            function submitForm() {
-              // Get input values
-              var selectValue = document.getElementById("mySelect").value;
-              var input1Value = document.getElementById("input1").value;
-              var input2Value = document.getElementById("input2").value;
-        
-              // Perform any necessary operations or calculations with the input values
-              var outputValue = "Output: " + selectValue + " | " + input1Value + " | " + input2Value;
-        
-              // Display the output
-              document.getElementById("output").innerText = outputValue;
-            }
-          </script>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Gradustion Project</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <head>
+    
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    
 </head>
-<div class="header">
- <h1>Gradtuion Project</h1>   
-</div>
+<style>
+  body, h1, h2, p, select, input, button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, sans-serif;
+  }
+  
+ 
+  body {
+    background: linear-gradient(to right, red, orange, yellow);
+  }
+  
+ 
+  .header {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    color: white;
+    font-size: 32px;
+  }
+  
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-field {
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  select, button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button {
+    margin-top: 15px;
+  }
+  
+ 
+  .output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 18px;
+    color: #007bff;
+  }
+  </style>
 <body>
-    <div class="container">
-        <select id="mySelect">
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select>
-    
-        <div class="input-field">
-          <input type="text" id="input1" placeholder="Input 1">
-        </div>
-    
-        <div class="input-field">
-          <input type="text" id="input2" placeholder="Input 2">
-        </div>
-    
-        <button onclick="submitForm()">Submit</button>
-    
-        <div class="output" id="output"></div>
-      </div>
-    
-</body>
+    <div class="header">
+        <h1>Graduation Project</h1>
+    </div>
 
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <select id="mySelect" name="option">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+                <option value="option5">Option 5</option>
+                <option value="option6">Option 6</option>
+                <option value="option7">Option 7</option>
+                <option value="option8">Option 8</option>
+            </select>
+
+            <div class="input-field">
+                <input type="text" id="input1" name="input1" placeholder="Input 1">
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="input2" name="input2" placeholder="Input 2">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="output">
+            {% if output %}
+                Output: {{ output }}
+            {% endif %}
+        </div>
+    </div>
+</body>
 </html>
